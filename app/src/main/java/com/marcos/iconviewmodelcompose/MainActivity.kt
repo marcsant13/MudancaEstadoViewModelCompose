@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.marcos.iconviewmodelcompose.ui.theme.IconViewModelComposeTheme
 import com.marcos.iconviewmodelcompose.viewmodel.IconViewModel
+import com.marcos.iconviewmodelcompose.viewmodel.TextFieldViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +44,10 @@ class MainActivity : ComponentActivity() {
 fun AppIcon() {
 
     val viewModelIcon: IconViewModel = viewModel()
+    val textFieldViewModel: TextFieldViewModel = viewModel()
+
     val stateImage = viewModelIcon.imageIcon.value
+    var textoDigitado = textFieldViewModel.textoDigitado.value
 
     Column(
         modifier = Modifier
@@ -57,6 +62,11 @@ fun AppIcon() {
                 .clickable(onClick = { viewModelIcon.mudarEstado() }),
             painter = painterResource(stateImage),
             contentDescription = null
+        )
+        TextField(
+            value = textoDigitado,
+            onValueChange = { it: String -> textFieldViewModel.captarTexto(it) },
+            label = { Text("Digite algo") }
         )
     }
 }

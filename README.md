@@ -3,9 +3,7 @@
 Aplicativo Android simples feito com **Kotlin** e **Jetpack Compose** para demonstrar como gerenciar o estado de um ícone usando **ViewModel**.
 
 ## 📌 Funcionalidades
-- Exibe um ícone na tela.
-- Alterna entre dois ícones ao ser clicado.
-- Mantém o estado do ícone mesmo após recomposições, graças ao uso de ViewModel.
+- Exibe um ícone e caixa de texto na tela, controlando seus estados usando viewmodels.
 
 ## 🛠 Tecnologias utilizadas
 - Kotlin
@@ -15,7 +13,8 @@ Aplicativo Android simples feito com **Kotlin** e **Jetpack Compose** para demon
 
 ## 📂 Estrutura
 - **IconViewModel** → Gerencia o estado do ícone.
-- **MainActivity** → Contém o Composable principal que exibe o ícone.
+- **TextFieldViewModel** -> Gerencia o estado da caixa de texto
+- **MainActivity** → Contém o Composable principal que exibe o ícone e caixa de texto.
 
 ## Dependências
 -implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1")
